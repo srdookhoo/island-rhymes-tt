@@ -1,0 +1,51 @@
+{
+  "name": "Book",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string"
+    },
+    "age_group": {
+      "type": "string",
+      "enum": [
+        "infants",
+        "toddlers",
+        "young_children"
+      ]
+    },
+    "age_label": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "price": {
+      "type": "number"
+    },
+    "cover_image": {
+      "type": "string"
+    },
+    "themes": {
+      "type": "string"
+    },
+    "snippet": {
+      "type": "string"
+    },
+    "page_count": {
+      "type": "number"
+    },
+    "sort_order": {
+      "type": "number"
+    },
+    "available": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "required": [
+    "title",
+    "age_group",
+    "price",
+    "cover_image"
+  ]
+}

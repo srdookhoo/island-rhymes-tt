@@ -1,0 +1,39 @@
+{
+  "name": "Order",
+  "type": "object",
+  "properties": {
+    "order_reference": {
+      "type": "string"
+    },
+    "total": {
+      "type": "number"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "paid",
+        "failed",
+        "cancelled"
+      ],
+      "default": "pending"
+    },
+    "customer_email": {
+      "type": "string"
+    },
+    "customer_name": {
+      "type": "string"
+    },
+    "items_json": {
+      "type": "string"
+    },
+    "sendana_reference": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "order_reference",
+    "total",
+    "status"
+  ]
+}
