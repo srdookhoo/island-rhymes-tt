@@ -114,6 +114,20 @@ export default function BookDetail() {
               <p className="mt-3 text-lg leading-relaxed text-charcoal/80">{book.description}</p>
             </div>
 
+            {book.story && (
+              <div className="rounded-2xl bg-cream p-6 ring-1 ring-samaan/15">
+                <div className="flex items-center justify-between">
+                  <p className="font-heading text-sm uppercase tracking-wide text-samaan">Full story · for proofreading</p>
+                  <span className="rounded-full bg-poui/30 px-3 py-1 text-xs font-semibold text-charcoal/70">Draft</span>
+                </div>
+                <div className="mt-4 space-y-4">
+                  {book.story.split(/\n\n+/).map((para, i) => (
+                    <p key={i} className="whitespace-pre-line font-heading text-xl leading-relaxed text-charcoal/85">{para}</p>
+                  ))}
+                </div>
+              </div>
+            )}
+
             <div className="rounded-2xl bg-scarlet/5 p-6 ring-1 ring-scarlet/15">
               <p className="font-heading text-sm uppercase tracking-wide text-scarlet">A read-aloud snippet</p>
               <p className="mt-4 font-heading text-2xl leading-relaxed text-charcoal md:text-3xl">“{book.snippet}”</p>
