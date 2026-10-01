@@ -90,17 +90,25 @@ export default function EbookReader({ ebookId }) {
         <p className="font-heading text-lg text-charcoal">
           {page.is_cover ? (
             'Cover'
-          ) : (
+          ) : page.letter ? (
             <>
               <span className="text-scarlet">{page.letter}</span>{' '}
               <span className="text-charcoal/70">— {page.label}</span>
             </>
+          ) : (
+            <span className="text-charcoal/70">{page.label}</span>
           )}
         </p>
         <p className="text-sm text-charcoal/50">
           {index + 1} / {pages.length}
         </p>
       </div>
+
+      {page.text && (
+        <div className="mt-4 rounded-2xl bg-cream p-5 ring-1 ring-samaan/15">
+          <p className="whitespace-pre-line font-heading text-xl leading-relaxed text-charcoal/85">{page.text}</p>
+        </div>
+      )}
 
       <div className="mt-2 h-1.5 w-full overflow-hidden rounded-full bg-samaan/15">
         <div
