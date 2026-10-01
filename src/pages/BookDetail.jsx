@@ -4,6 +4,7 @@ import { base44 } from '@/api/base44Client';
 import { Image } from '@/components/ui/image';
 import { useCart } from '@/lib/cart-context';
 import { ArrowLeft, Plus, Volume2, VolumeX, BookOpen, Sparkles } from 'lucide-react';
+import EbookLayout from '@/components/EbookLayout';
 
 export default function BookDetail() {
   const { id } = useParams();
@@ -57,6 +58,10 @@ export default function BookDetail() {
         <div className="h-10 w-10 animate-spin rounded-full border-4 border-samaan/20 border-t-scarlet" />
       </div>
     );
+  }
+
+  if (book.ebook_id) {
+    return <EbookLayout book={book} />;
   }
 
   const themes = (book.themes || '').split(',').map((t) => t.trim()).filter(Boolean);

@@ -40,6 +40,9 @@
     "available": {
       "type": "boolean",
       "default": true
+    },
+    "ebook_id": {
+      "type": "string"
     }
   },
   "required": [

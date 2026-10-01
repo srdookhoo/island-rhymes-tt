@@ -1,0 +1,30 @@
+{
+  "name": "EbookPage",
+  "type": "object",
+  "properties": {
+    "ebook_id": {
+      "type": "string"
+    },
+    "page_number": {
+      "type": "number"
+    },
+    "letter": {
+      "type": "string"
+    },
+    "label": {
+      "type": "string"
+    },
+    "image": {
+      "type": "string"
+    },
+    "is_cover": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "required": [
+    "ebook_id",
+    "page_number",
+    "image"
+  ]
+}
