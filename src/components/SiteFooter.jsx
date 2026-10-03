@@ -62,12 +62,12 @@ export default function SiteFooter() {
             <h4 className="font-heading text-xl text-poui">Say Hello</h4>
             <ul className="mt-3 space-y-2 text-cream/80">
               <li>Port of Spain, Trinidad & Tobago</li>
-              <li>hello@islandrythmbooks.tt</li>
+              <li>hello@islandrhythmbooks.tt</li>
             </ul>
             <div className="mt-4 flex gap-3">
               <a href="#" aria-label="Instagram" className="grid h-10 w-10 place-items-center rounded-full bg-cream/10 transition hover:bg-cream/20"><Instagram className="h-5 w-5" /></a>
               <a href="#" aria-label="Facebook" className="grid h-10 w-10 place-items-center rounded-full bg-cream/10 transition hover:bg-cream/20"><Facebook className="h-5 w-5" /></a>
-              <a href="mailto:hello@islandrythmbooks.tt" aria-label="Email" className="grid h-10 w-10 place-items-center rounded-full bg-cream/10 transition hover:bg-cream/20"><Mail className="h-5 w-5" /></a>
+              <a href="mailto:hello@islandrhythmbooks.tt" aria-label="Email" className="grid h-10 w-10 place-items-center rounded-full bg-cream/10 transition hover:bg-cream/20"><Mail className="h-5 w-5" /></a>
             </div>
           </div>
         </div>

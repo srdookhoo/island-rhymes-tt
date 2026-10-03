@@ -35,7 +35,7 @@ export default function Home() {
             The Rhythm of the Islands, Told One Page at a Time
           </h1>
           <p className="mt-8 max-w-xl text-lg text-cream/90 md:text-xl">
-            Twelve hand-illustrated stories from Trinidad &amp; Tobago — from a crapaud's first splash to soca in the savannah.
+            A series of Caribbean stories from Trinidad &amp; Tobago — from a crapaud's first splash to soca in the savannah.
           </p>
           <a href="#infants" className="mt-10 inline-flex items-center gap-2 rounded-full bg-poui px-8 py-3 font-heading text-lg text-charcoal shadow-xl transition hover:scale-105">
             Begin the journey <ArrowRight className="h-5 w-5" />
@@ -48,7 +48,7 @@ export default function Home() {
         <div className="mx-auto flex max-w-3xl flex-col items-center">
           <BookOpen className="h-8 w-8 text-scarlet" />
           <p className="mt-4 font-heading text-2xl text-charcoal md:text-3xl">
-            “In the tradition of Julia Donaldson — rhyme you can march to, stories you can sing.”
+            “In the tradition of Trinbago culture — rhymes you can march to, stories you can sing.”
           </p>
           <p className="mt-4 text-charcoal/70">
             Each tale is built on a beat: read-aloud verse, West Indian folklore, and art painted in the golden hour.
@@ -76,14 +76,12 @@ export default function Home() {
         <div className="mx-auto grid max-w-5xl items-center gap-12 md:grid-cols-2">
           <div>
             <p className="font-heading text-sm uppercase tracking-[0.3em] text-poui">The Storyteller</p>
-            <h2 className="mt-3 font-heading text-4xl md:text-5xl">A voice in the tradition of Julia Donaldson</h2>
+            <h2 className="mt-3 font-heading text-4xl md:text-5xl">Dr. Sandhya Dookhoo</h2>
             <p className="mt-5 text-lg leading-relaxed text-cream/85">
-              Our author writes the way the islands sound — in cadence, in colour, in call-and-response. Like Julia Donaldson's
-              beloved verse, every line is made to be read aloud, again and again, until the rhyme lives in the child.
+              Mum to one amazing boy, inspired to create a children's collection worthy of embracing our local treasures and culture. She writes the way the beautiful twin islands sound — in colour, in harmony and in troves of tropical wonder!
             </p>
-            <p className="mt-4 text-lg leading-relaxed text-cream/85">
-              But these stories wear a West Indian soul: Anansi schemes, the Cocrico finds its coo, and the poui rains gold
-              over a wondering child. Twelve books, one archipelago, a lifetime of rhythm.
+            <p className="mt-4 font-heading text-xl leading-relaxed text-poui">
+              Bring your little ones along for a true T&amp;T adventure!
             </p>
           </div>
           <div className="relative">
