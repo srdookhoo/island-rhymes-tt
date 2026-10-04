@@ -4,7 +4,6 @@ import { Image } from '@/components/ui/image';
 import AgeSection from '@/components/AgeSection';
 import SearchBar from '@/components/SearchBar';
 import BookCard from '@/components/BookCard';
-import MeetAuthor from '@/components/MeetAuthor';
 import { ArrowRight, BookOpen, Search as SearchIcon } from 'lucide-react';
 
 const HERO = 'https://media.base44.com/images/public/6abd0752646018ec90ff9353/18cc047ec_generated_image.png';
@@ -115,8 +114,29 @@ export default function Home() {
         </>
       )}
 
-      {/* Meet the Author */}
-      <MeetAuthor />
+      {/* Storyteller */}
+      <section id="storyteller" className="bg-samaan px-6 py-28 text-cream">
+        <div className="mx-auto grid max-w-5xl items-center gap-12 md:grid-cols-2">
+          <div>
+            <p className="font-heading text-sm uppercase tracking-[0.3em] text-poui">The Storyteller</p>
+            <h2 className="mt-3 font-heading text-4xl md:text-5xl">Dr. Sandhya Dookhoo</h2>
+            <p className="mt-5 text-lg leading-relaxed text-cream/85">
+              Mum to one amazing boy, inspired to create a children's collection worthy of embracing our local treasures and culture. She writes the way the beautiful twin islands sound — in colour, in harmony and in troves of tropical wonder!
+            </p>
+            <p className="mt-4 font-heading text-xl leading-relaxed text-poui">
+              Bring your little ones along for a true T&amp;T adventure!
+            </p>
+          </div>
+          <div className="relative">
+            <div className="overflow-hidden rounded-2xl shadow-2xl">
+              <Image src={HERO} alt="The storyteller's island" className="aspect-[4/3] w-full" fittingType="fill" />
+            </div>
+            <div className="float-slow absolute -bottom-6 -left-6 hidden rounded-2xl bg-poui px-6 py-4 font-heading text-charcoal shadow-xl md:block">
+              12 books · 3 ages · 1 village
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
