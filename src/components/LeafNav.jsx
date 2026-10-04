@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Leaf, X, ShoppingBag, Award } from 'lucide-react';
+import { Leaf, X, ShoppingBag, Award, History } from 'lucide-react';
 import { useCart } from '@/lib/cart-context';
 import { useBadges } from '@/lib/badge-context';
 
@@ -10,6 +10,7 @@ const links = [
   { label: 'Toddlers (3–5)', to: '/#toddlers', top: '38%', left: '74%' },
   { label: 'Young Readers (6+)', to: '/#young', top: '56%', left: '38%' },
   { label: 'My Badges', to: '/badges', top: '48%', left: '60%' },
+  { label: 'Reading History', to: '/history', top: '60%', left: '50%' },
   { label: 'The Storyteller', to: '/#storyteller', top: '70%', left: '66%' },
   { label: 'Join the Village', to: '/#village', top: '80%', left: '24%' },
 ];
@@ -22,6 +23,13 @@ export default function LeafNav() {
   return (
     <>
       <div className="fixed top-5 right-5 z-50 flex items-center gap-3">
+        <Link
+          to="/history"
+          aria-label="Reading history"
+          className="grid h-12 w-12 place-items-center rounded-full bg-cream text-charcoal shadow-lg transition hover:scale-105"
+        >
+          <History className="h-5 w-5" />
+        </Link>
         <Link
           to="/badges"
           aria-label="View badges"

@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import { base44 } from '@/api/base44Client';
 import { Image } from '@/components/ui/image';
 import { useCart } from '@/lib/cart-context';
+import { useReadingHistory } from '@/lib/reading-history-context';
 import { ArrowLeft, Plus, Volume2, VolumeX, BookOpen, Sparkles } from 'lucide-react';
 import EbookLayout from '@/components/EbookLayout';
 
@@ -12,14 +13,18 @@ export default function BookDetail() {
   const [notFound, setNotFound] = useState(false);
   const [speaking, setSpeaking] = useState(false);
   const { add } = useCart();
+  const { logReading } = useReadingHistory();
 
   useEffect(() => {
     setBook(null);
     setNotFound(false);
     base44.entities.Book.get(id)
-      .then(setBook)
+      .then((b) => {
+        setBook(b);
+        logReading(b);
+      })
       .catch(() => setNotFound(true));
-  }, [id]);
+  }, [id, logReading]);
 
   useEffect(() => {
     return () => {

@@ -8,12 +8,14 @@ import UserNotRegisteredError from '@/components/UserNotRegisteredError';
 import ScrollToTop from './components/ScrollToTop';
 import { CartProvider } from '@/lib/cart-context';
 import { BadgeProvider } from '@/lib/badge-context';
+import { ReadingHistoryProvider } from '@/lib/reading-history-context';
 import Layout from '@/components/Layout';
 import Home from '@/pages/Home';
 import BookDetail from '@/pages/BookDetail';
 import Checkout from '@/pages/Checkout';
 import OrderSuccess from '@/pages/OrderSuccess';
 import Badges from '@/pages/Badges';
+import ReadingHistory from '@/pages/ReadingHistory';
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
@@ -47,6 +49,7 @@ const AuthenticatedApp = () => {
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/order-success" element={<OrderSuccess />} />
         <Route path="/badges" element={<Badges />} />
+        <Route path="/history" element={<ReadingHistory />} />
         </Route>
       <Route path="*" element={<PageNotFound />} />
     </Routes>
@@ -62,9 +65,11 @@ function App() {
         <Router>
           <ScrollToTop />
           <BadgeProvider>
-            <CartProvider>
-              <AuthenticatedApp />
-            </CartProvider>
+            <ReadingHistoryProvider>
+              <CartProvider>
+                <AuthenticatedApp />
+              </CartProvider>
+            </ReadingHistoryProvider>
           </BadgeProvider>
         </Router>
         <Toaster />
