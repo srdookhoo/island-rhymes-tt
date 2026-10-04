@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Leaf, X, ShoppingBag } from 'lucide-react';
+import { Leaf, X, ShoppingBag, Award } from 'lucide-react';
 import { useCart } from '@/lib/cart-context';
+import { useBadges } from '@/lib/badge-context';
 
 const links = [
   { label: 'Home', to: '/', top: '16%', left: '50%' },
   { label: 'Infants (0–2)', to: '/#infants', top: '30%', left: '26%' },
   { label: 'Toddlers (3–5)', to: '/#toddlers', top: '38%', left: '74%' },
   { label: 'Young Readers (6+)', to: '/#young', top: '56%', left: '38%' },
+  { label: 'My Badges', to: '/badges', top: '48%', left: '60%' },
   { label: 'The Storyteller', to: '/#storyteller', top: '70%', left: '66%' },
   { label: 'Join the Village', to: '/#village', top: '80%', left: '24%' },
 ];
@@ -15,10 +17,23 @@ const links = [
 export default function LeafNav() {
   const [open, setOpen] = useState(false);
   const { count, openCart } = useCart();
+  const { earnedCount } = useBadges();
 
   return (
     <>
       <div className="fixed top-5 right-5 z-50 flex items-center gap-3">
+        <Link
+          to="/badges"
+          aria-label="View badges"
+          className="relative grid h-12 w-12 place-items-center rounded-full bg-poui text-charcoal shadow-lg transition hover:scale-105"
+        >
+          <Award className="h-5 w-5" />
+          {earnedCount > 0 && (
+            <span className="absolute -right-1 -top-1 grid h-6 w-6 place-items-center rounded-full bg-scarlet text-[11px] font-bold text-cream">
+              {earnedCount}
+            </span>
+          )}
+        </Link>
         <button
           onClick={openCart}
           aria-label="Open cart"

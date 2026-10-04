@@ -26,7 +26,7 @@ export default function EbookLayout({ book }) {
         </div>
 
         <div className="mt-6">
-          <EbookReader ebookId={book.ebook_id} />
+          <EbookReader ebookId={book.ebook_id} book={book} />
         </div>
 
         <div className="mt-8 flex justify-center">

@@ -3,10 +3,14 @@ import { base44 } from '@/api/base44Client';
 import { Image } from '@/components/ui/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { useBadges } from '@/lib/badge-context';
+import BadgePopup from '@/components/BadgePopup';
 
-export default function EbookReader({ ebookId }) {
+export default function EbookReader({ ebookId, book }) {
   const [pages, setPages] = useState(null);
   const [index, setIndex] = useState(0);
+  const [pending, setPending] = useState([]);
+  const { markBookFinished } = useBadges();
 
   useEffect(() => {
     setPages(null);
@@ -28,6 +32,13 @@ export default function EbookReader({ ebookId }) {
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
   }, [pages, index]);
+
+  useEffect(() => {
+    if (pages && pages.length && index === pages.length - 1 && book) {
+      const newly = markBookFinished(book);
+      if (newly && newly.length) setPending((p) => [...p, ...newly]);
+    }
+  }, [pages, index, book, markBookFinished]);
 
   if (!pages) {
     return (
@@ -134,6 +145,10 @@ export default function EbookReader({ ebookId }) {
       <p className="mt-3 text-center text-xs text-charcoal/50">
         Use the arrows or your ← → keys to turn the page.
       </p>
+
+      {pending.length > 0 && (
+        <BadgePopup badge={pending[0]} onDismiss={() => setPending((p) => p.slice(1))} />
+      )}
     </div>
   );
 }

@@ -7,11 +7,13 @@ import { AuthProvider, useAuth } from '@/lib/AuthContext';
 import UserNotRegisteredError from '@/components/UserNotRegisteredError';
 import ScrollToTop from './components/ScrollToTop';
 import { CartProvider } from '@/lib/cart-context';
+import { BadgeProvider } from '@/lib/badge-context';
 import Layout from '@/components/Layout';
 import Home from '@/pages/Home';
 import BookDetail from '@/pages/BookDetail';
 import Checkout from '@/pages/Checkout';
 import OrderSuccess from '@/pages/OrderSuccess';
+import Badges from '@/pages/Badges';
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
@@ -44,7 +46,8 @@ const AuthenticatedApp = () => {
         <Route path="/book/:id" element={<BookDetail />} />
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/order-success" element={<OrderSuccess />} />
-      </Route>
+        <Route path="/badges" element={<Badges />} />
+        </Route>
       <Route path="*" element={<PageNotFound />} />
     </Routes>
   );
@@ -58,9 +61,11 @@ function App() {
       <QueryClientProvider client={queryClientInstance}>
         <Router>
           <ScrollToTop />
-          <CartProvider>
-            <AuthenticatedApp />
-          </CartProvider>
+          <BadgeProvider>
+            <CartProvider>
+              <AuthenticatedApp />
+            </CartProvider>
+          </BadgeProvider>
         </Router>
         <Toaster />
       </QueryClientProvider>
