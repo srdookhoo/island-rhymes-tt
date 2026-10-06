@@ -4,6 +4,7 @@ import { Image } from '@/components/ui/image';
 import AgeSection from '@/components/AgeSection';
 import SearchBar from '@/components/SearchBar';
 import BookCard from '@/components/BookCard';
+import PromoBanner from '@/components/PromoBanner';
 import { ArrowRight, BookOpen, Play, Search as SearchIcon } from 'lucide-react';
 
 const HERO = 'https://media.base44.com/images/public/6abd0752646018ec90ff9353/18cc047ec_generated_image.png';
@@ -117,8 +118,22 @@ export default function Home() {
           <AgeSection books={grouped('infants')} {...AGE_META.infants} />
           <div className="h-px w-full bg-gradient-to-r from-transparent via-samaan/20 to-transparent" />
           <AgeSection books={grouped('toddlers')} {...AGE_META.toddlers} />
+          <PromoBanner
+            eyebrow="Reading Rainbow Rewards"
+            title="Earn island badges as you read"
+            description="Finish a story and collect a T&T flora-and-fauna medal — from the crapaud to the cocrico. Build your collection as your reading journey grows."
+            ctaLabel="See your badges"
+            ctaHref="/badges"
+            tone="scarlet"
+          />
           <div className="h-px w-full bg-gradient-to-r from-transparent via-samaan/20 to-transparent" />
           <AgeSection books={grouped('young_children')} {...AGE_META.young_children} />
+          <PromoBanner
+            eyebrow="Coming Soon to Google Play"
+            title="Take the rhythm of the islands anywhere"
+            description="Island Rhymes is launching on Google Play — read and sing along with your little ones on Android, anytime, anywhere."
+            tone="samaan"
+          />
         </>
       )}
 
