@@ -1,7 +1,6 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
 import LeafNav from '@/components/LeafNav';
-import CartDrawer from '@/components/CartDrawer';
 import SiteFooter from '@/components/SiteFooter';
 
 export default function Layout() {
@@ -12,7 +11,6 @@ export default function Layout() {
         <Outlet />
       </main>
       <SiteFooter />
-      <CartDrawer />
     </div>
   );
 }

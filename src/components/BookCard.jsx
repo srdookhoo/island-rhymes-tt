@@ -13,7 +13,6 @@ export default function BookCard({ book }) {
           <p className="font-heading text-lg text-scarlet">{book.title}</p>
           <p className="mt-2 text-sm italic leading-relaxed text-charcoal/80">“{book.snippet}”</p>
           <p className="mt-3 text-xs font-semibold uppercase tracking-wide text-samaan">{book.themes}</p>
-          <span className="mt-4 font-bold text-charcoal">TT${book.price.toFixed(2)}</span>
         </div>
       </div>
     </Link>

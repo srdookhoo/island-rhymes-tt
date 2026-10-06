@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Leaf, X, ShoppingBag, Award, History } from 'lucide-react';
-import { useCart } from '@/lib/cart-context';
+import { Leaf, X, Award, History } from 'lucide-react';
 import { useBadges } from '@/lib/badge-context';
 
 const links = [
@@ -17,7 +16,6 @@ const links = [
 
 export default function LeafNav() {
   const [open, setOpen] = useState(false);
-  const { count, openCart } = useCart();
   const { earnedCount } = useBadges();
 
   return (
@@ -42,18 +40,6 @@ export default function LeafNav() {
             </span>
           )}
         </Link>
-        <button
-          onClick={openCart}
-          aria-label="Open cart"
-          className="relative grid h-12 w-12 place-items-center rounded-full bg-scarlet text-cream shadow-lg transition hover:scale-105"
-        >
-          <ShoppingBag className="h-5 w-5" />
-          {count > 0 && (
-            <span className="absolute -right-1 -top-1 grid h-6 w-6 place-items-center rounded-full bg-poui text-[11px] font-bold text-charcoal">
-              {count}
-            </span>
-          )}
-        </button>
         <button
           onClick={() => setOpen(true)}
           aria-label="Open menu"

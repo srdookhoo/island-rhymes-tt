@@ -2,9 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { base44 } from '@/api/base44Client';
 import { Image } from '@/components/ui/image';
-import { useCart } from '@/lib/cart-context';
 import { useReadingHistory } from '@/lib/reading-history-context';
-import { ArrowLeft, Plus, Volume2, VolumeX, BookOpen, Sparkles } from 'lucide-react';
+import { ArrowLeft, Volume2, VolumeX, BookOpen, Sparkles } from 'lucide-react';
 import EbookLayout from '@/components/EbookLayout';
 
 export default function BookDetail() {
@@ -12,7 +11,6 @@ export default function BookDetail() {
   const [book, setBook] = useState(null);
   const [notFound, setNotFound] = useState(false);
   const [speaking, setSpeaking] = useState(false);
-  const { add } = useCart();
   const { logReading } = useReadingHistory();
 
   useEffect(() => {
@@ -85,19 +83,10 @@ export default function BookDetail() {
               <Image src={book.cover_image} alt={book.title} className="aspect-[3/4] w-full" fittingType="fill" />
             </div>
             <div className="mt-6 rounded-2xl bg-cream p-6 ring-1 ring-samaan/15">
-              <div className="flex items-end justify-between">
-                <div>
-                  <p className="font-heading text-sm uppercase tracking-wide text-samaan">{book.age_label}</p>
-                  <p className="mt-1 font-heading text-4xl text-scarlet">TT${book.price.toFixed(2)}</p>
-                </div>
+              <div className="flex items-center justify-between">
+                <p className="font-heading text-sm uppercase tracking-wide text-samaan">{book.age_label}</p>
                 <span className="rounded-full bg-samaan/10 px-3 py-1 text-xs font-semibold text-samaan">{book.page_count} pages</span>
               </div>
-              <button
-                onClick={() => add({ id: book.id, title: book.title, price: book.price, cover_image: book.cover_image })}
-                className="mt-5 flex w-full items-center justify-center gap-2 rounded-full bg-poui py-3 font-heading text-lg text-charcoal transition hover:brightness-105"
-              >
-                <Plus className="h-5 w-5" /> Add to your library
-              </button>
             </div>
           </div>
 
