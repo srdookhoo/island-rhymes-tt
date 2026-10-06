@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Instagram, Facebook, Mail, Heart } from 'lucide-react';
+import { Image } from '@/components/ui/image';
+
+const LOGO = 'https://media.base44.com/images/public/6abd0752646018ec90ff9353/6190dccbc_generated_image.png';
 
 export default function SiteFooter() {
   const [email, setEmail] = useState('');
@@ -25,6 +28,9 @@ export default function SiteFooter() {
       <div className="relative mx-auto max-w-6xl px-6 pb-12 pt-28">
         <div className="grid gap-12 md:grid-cols-3">
           <div>
+            <Link to="/" className="mb-4 inline-block">
+              <Image src={LOGO} alt="Island Rhymes T&T" className="h-16 w-16 rounded-full shadow-lg" fittingType="fill" />
+            </Link>
             <h3 className="font-heading text-2xl text-poui">Join the Village</h3>
             <p className="mt-3 text-cream/80">
               Get new book reveals, read-aloud dates, and island stories — straight to your inbox.

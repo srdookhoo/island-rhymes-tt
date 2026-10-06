@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Leaf, X, Award, History } from 'lucide-react';
 import { useBadges } from '@/lib/badge-context';
+import { Image } from '@/components/ui/image';
 
 const links = [
   { label: 'Home', to: '/', top: '16%', left: '50%' },
@@ -14,12 +15,17 @@ const links = [
   { label: 'Join the Village', to: '/#village', top: '80%', left: '24%' },
 ];
 
+const LOGO = 'https://media.base44.com/images/public/6abd0752646018ec90ff9353/6190dccbc_generated_image.png';
+
 export default function LeafNav() {
   const [open, setOpen] = useState(false);
   const { earnedCount } = useBadges();
 
   return (
     <>
+      <Link to="/" className="fixed top-5 left-5 z-50">
+        <Image src={LOGO} alt="Island Rhymes T&T" className="h-12 w-12 rounded-full shadow-lg transition hover:scale-105" fittingType="fill" />
+      </Link>
       <div className="fixed top-5 right-5 z-50 flex items-center gap-3">
         <Link
           to="/history"
