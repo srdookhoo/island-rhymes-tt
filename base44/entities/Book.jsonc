@@ -46,6 +46,10 @@
     },
     "ebook_id": {
       "type": "string"
+    },
+    "play_product_id": {
+      "type": "string",
+      "description": "Google Play in-app product ID for purchase-gated access"
     }
   },
   "required": [

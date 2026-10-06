@@ -4,7 +4,7 @@ import { Image } from '@/components/ui/image';
 import AgeSection from '@/components/AgeSection';
 import SearchBar from '@/components/SearchBar';
 import BookCard from '@/components/BookCard';
-import { ArrowRight, BookOpen, Search as SearchIcon } from 'lucide-react';
+import { ArrowRight, BookOpen, Play, Search as SearchIcon } from 'lucide-react';
 
 const HERO = 'https://media.base44.com/images/public/6abd0752646018ec90ff9353/18cc047ec_generated_image.png';
 
@@ -38,6 +38,14 @@ export default function Home() {
 
   return (
     <div>
+      {/* Coming to Google Play banner */}
+      <div className="bg-charcoal text-cream">
+        <div className="mx-auto flex max-w-6xl items-center justify-center gap-2 px-6 py-2.5 text-center text-sm">
+          <Play className="h-4 w-4 shrink-0 fill-poui text-poui" />
+          <span>Coming soon to <strong className="font-semibold text-poui">Google Play</strong> — island stories to read, sing, and carry along.</span>
+        </div>
+      </div>
+
       {/* Hero */}
       <section className="relative flex min-h-[600px] items-center justify-center overflow-hidden md:h-screen">
         <Image src={HERO} alt="Trinidad and Tobago landscape at golden hour" className="absolute inset-0 h-full w-full" fittingType="fill" />

@@ -1,0 +1,49 @@
+{
+  "name": "Entitlement",
+  "type": "object",
+  "properties": {
+    "user_id": {
+      "type": "string",
+      "description": "The app user who holds this entitlement"
+    },
+    "book_id": {
+      "type": "string",
+      "description": "The Book record this entitlement unlocks"
+    },
+    "play_product_id": {
+      "type": "string",
+      "description": "The Google Play in-app product ID (matches Book.play_product_id)"
+    },
+    "purchase_token": {
+      "type": "string",
+      "description": "Google Play purchase token used for server-side verification"
+    },
+    "order_id": {
+      "type": "string",
+      "description": "Google Play order ID from the purchase receipt"
+    },
+    "provider": {
+      "type": "string",
+      "default": "google_play",
+      "description": "Payment provider that granted this entitlement"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "active",
+        "refunded",
+        "revoked"
+      ],
+      "default": "active"
+    },
+    "purchased_at": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "required": [
+    "user_id",
+    "book_id",
+    "status"
+  ]
+}
