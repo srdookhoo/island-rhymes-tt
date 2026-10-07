@@ -13,6 +13,8 @@ import Home from '@/pages/Home';
 import BookDetail from '@/pages/BookDetail';
 import Badges from '@/pages/Badges';
 import ReadingHistory from '@/pages/ReadingHistory';
+import About from '@/pages/About';
+import Contact from '@/pages/Contact';
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
@@ -45,6 +47,8 @@ const AuthenticatedApp = () => {
         <Route path="/book/:id" element={<BookDetail />} />
         <Route path="/badges" element={<Badges />} />
         <Route path="/history" element={<ReadingHistory />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
         </Route>
       <Route path="*" element={<PageNotFound />} />
     </Routes>

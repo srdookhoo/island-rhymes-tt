@@ -61,6 +61,8 @@ export default function SiteFooter() {
               <li><Link to="/#toddlers" className="hover:text-poui">Toddlers (3–5)</Link></li>
               <li><Link to="/#young" className="hover:text-poui">Young Readers (6+)</Link></li>
               <li><Link to="/#storyteller" className="hover:text-poui">The Storyteller</Link></li>
+              <li><Link to="/about" className="hover:text-poui">About</Link></li>
+              <li><Link to="/contact" className="hover:text-poui">Contact</Link></li>
             </ul>
           </div>
 
