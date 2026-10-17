@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Leaf, X, Award, History, Settings as SettingsIcon } from 'lucide-react';
-import { useBadges } from '@/lib/badge-context';
+import { Leaf, X } from 'lucide-react';
 import { Image } from '@/components/ui/image';
 
 const links = [
@@ -19,44 +18,17 @@ const LOGO = 'https://media.base44.com/images/public/6abd0752646018ec90ff9353/61
 
 export default function LeafNav() {
   const [open, setOpen] = useState(false);
-  const { earnedCount } = useBadges();
 
   return (
     <>
-      <Link to="/" className="safe-top fixed top-5 left-5 z-50">
+      <Link to="/" aria-label="Home" className="safe-top safe-left fixed top-5 left-5 z-50 rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-scarlet focus-visible:ring-offset-2">
         <Image src={LOGO} alt="Island Rhymes T&T" className="h-12 w-12 rounded-full shadow-lg transition hover:scale-105" fittingType="fill" />
       </Link>
-      <div className="safe-top fixed top-5 right-5 z-50 flex items-center gap-3">
-        <Link
-          to="/history"
-          aria-label="Reading history"
-          className="grid h-12 w-12 place-items-center rounded-full bg-cream text-charcoal shadow-lg transition hover:scale-105"
-        >
-          <History className="h-5 w-5" />
-        </Link>
-        <Link
-          to="/badges"
-          aria-label="View badges"
-          className="relative grid h-12 w-12 place-items-center rounded-full bg-poui text-charcoal shadow-lg transition hover:scale-105"
-        >
-          <Award className="h-5 w-5" />
-          {earnedCount > 0 && (
-            <span className="absolute -right-1 -top-1 grid h-6 w-6 place-items-center rounded-full bg-scarlet text-[11px] font-bold text-cream">
-              {earnedCount}
-            </span>
-          )}
-        </Link>
-        <Link
-          to="/settings"
-          aria-label="Settings"
-          className="grid h-12 w-12 place-items-center rounded-full bg-cream text-charcoal shadow-lg transition hover:scale-105"
-        >
-          <SettingsIcon className="h-5 w-5" />
-        </Link>
+      <div className="safe-top safe-right fixed top-5 right-5 z-50 flex items-center gap-3">
         <button
           onClick={() => setOpen(true)}
           aria-label="Open menu"
-          className="grid h-12 w-12 place-items-center rounded-full bg-samaan text-cream shadow-lg transition hover:scale-105"
+          className="grid h-12 w-12 place-items-center rounded-full bg-samaan text-cream shadow-lg transition hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-scarlet focus-visible:ring-offset-2"
         >
           <Leaf className="h-6 w-6" />
         </button>
@@ -67,7 +39,7 @@ export default function LeafNav() {
           <button
             onClick={() => setOpen(false)}
             aria-label="Close menu"
-            className="absolute right-5 top-5 grid h-12 w-12 place-items-center rounded-full bg-cream/10 text-cream transition hover:bg-cream/20"
+            className="absolute right-5 top-5 grid h-12 w-12 place-items-center rounded-full bg-cream/10 text-cream transition hover:bg-cream/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-poui focus-visible:ring-offset-2"
           >
             <X className="h-6 w-6" />
           </button>

@@ -4,8 +4,8 @@ import { Award, Sparkles } from 'lucide-react';
 import { useBadges } from '@/lib/badge-context';
 import BadgeMedal from '@/components/BadgeMedal';
 import { COLLECTION_BADGES } from '@/lib/badges';
-import BackButton from '@/components/BackButton';
 import { usePullToRefresh } from '@/hooks/usePullToRefresh';
+import PullIndicator from '@/components/PullIndicator';
 
 export default function Badges() {
   const { books, badgeList, earned, earnedCount, refresh } = useBadges();
@@ -18,15 +18,9 @@ export default function Badges() {
 
   return (
     <div ref={ref} className="px-6 py-12 md:py-16">
-      {(pullDistance > 0 || refreshing) && (
-        <div className="mx-auto flex max-w-5xl items-end justify-center overflow-hidden" style={{ height: refreshing ? 40 : pullDistance }}>
-          <div className={`mb-1 h-8 w-8 rounded-full border-4 border-samaan/20 border-t-scarlet ${refreshing ? 'animate-spin' : ''}`} />
-        </div>
-      )}
+      <PullIndicator className="mx-auto max-w-5xl" pullDistance={pullDistance} refreshing={refreshing} />
       <div className="mx-auto max-w-5xl">
-        <BackButton />
-
-        <div className="mt-6 text-center">
+        <div className="text-center">
           <div className="mx-auto grid h-14 w-14 place-items-center rounded-full bg-scarlet/10 text-scarlet">
             <Award className="h-7 w-7" />
           </div>

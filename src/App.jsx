@@ -8,6 +8,7 @@ import UserNotRegisteredError from '@/components/UserNotRegisteredError';
 import ScrollToTop from './components/ScrollToTop';
 import { BadgeProvider } from '@/lib/badge-context';
 import { ReadingHistoryProvider } from '@/lib/reading-history-context';
+import { TabProvider } from '@/lib/tab-context';
 import { lazy, Suspense } from 'react';
 import { ThemeProvider } from 'next-themes';
 import Layout from '@/components/Layout';
@@ -70,11 +71,13 @@ function App() {
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <Router>
             <ScrollToTop />
-            <BadgeProvider>
-              <ReadingHistoryProvider>
-                <AuthenticatedApp />
-              </ReadingHistoryProvider>
-            </BadgeProvider>
+            <TabProvider>
+              <BadgeProvider>
+                <ReadingHistoryProvider>
+                  <AuthenticatedApp />
+                </ReadingHistoryProvider>
+              </BadgeProvider>
+            </TabProvider>
           </Router>
         </ThemeProvider>
         <Toaster />

@@ -3,6 +3,8 @@ import { useLocation, useOutlet, useNavigationType } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import LeafNav from '@/components/LeafNav';
 import SiteFooter from '@/components/SiteFooter';
+import Header from '@/components/Header';
+import TabBar from '@/components/TabBar';
 
 function AnimatedOutlet() {
   const outlet = useOutlet();
@@ -29,10 +31,13 @@ export default function Layout() {
   return (
     <div className="min-h-screen bg-background">
       <LeafNav />
-      <main style={{ overflowX: 'clip' }}>
+      <main className="safe-top safe-left safe-right" style={{ overflowX: 'clip' }}>
+        <Header />
         <AnimatedOutlet />
       </main>
       <SiteFooter />
+      <div className="h-20 safe-bottom" aria-hidden="true" />
+      <TabBar />
     </div>
   );
 }

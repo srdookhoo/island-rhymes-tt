@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 import { Mail, Instagram, Facebook, MapPin, Send } from 'lucide-react';
-import BackButton from '@/components/BackButton';
-
 export default function Contact() {
   const [form, setForm] = useState({ name: '', email: '', message: '' });
   const [sent, setSent] = useState(false);
@@ -26,9 +24,7 @@ export default function Contact() {
       </section>
 
       <section className="mx-auto max-w-4xl px-6 py-16">
-        <BackButton className="inline-flex items-center gap-2 text-charcoal/70 transition hover:text-scarlet" />
-
-        <div className="mt-8 grid gap-10 md:grid-cols-2">
+        <div className="grid gap-10 md:grid-cols-2">
           <div>
             <h2 className="font-heading text-3xl text-charcoal">We'd love to hear from you</h2>
             <p className="mt-4 text-lg leading-relaxed text-charcoal/80">

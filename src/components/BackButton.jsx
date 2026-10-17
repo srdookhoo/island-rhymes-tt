@@ -18,7 +18,7 @@ export default function BackButton({
   };
 
   return (
-    <button type="button" onClick={handleBack} className={className}>
+    <button type="button" onClick={handleBack} className={`${className} focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-scarlet focus-visible:ring-offset-2`}>
       <ArrowLeft className="h-4 w-4" /> {children}
     </button>
   );

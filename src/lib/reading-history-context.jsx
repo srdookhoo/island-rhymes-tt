@@ -39,7 +39,17 @@ export function ReadingHistoryProvider({ children }) {
 
   const clearHistory = useCallback(() => setHistory([]), []);
 
-  const value = { history, logReading, clearHistory };
+  const refresh = useCallback(() => {
+    setHistory(() => {
+      try {
+        return JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+      } catch {
+        return [];
+      }
+    });
+  }, []);
+
+  const value = { history, logReading, clearHistory, refresh };
 
   return (
     <ReadingHistoryContext.Provider value={value}>

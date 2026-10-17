@@ -18,7 +18,7 @@ export default function SearchBar({ value, onChange, placeholder = 'Search by ti
           type="button"
           onClick={() => onChange('')}
           aria-label="Clear search"
-          className="absolute right-3 top-1/2 grid h-8 w-8 -translate-y-1/2 place-items-center rounded-full text-charcoal/50 transition hover:bg-samaan/10 hover:text-charcoal"
+          className="absolute right-2 top-1/2 grid h-11 w-11 -translate-y-1/2 place-items-center rounded-full text-charcoal/50 transition hover:bg-samaan/10 hover:text-charcoal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-scarlet focus-visible:ring-offset-2"
         >
           <X className="h-4 w-4" />
         </button>

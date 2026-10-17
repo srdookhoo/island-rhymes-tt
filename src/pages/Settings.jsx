@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { useAuth } from '@/lib/AuthContext';
 import { base44 } from '@/api/base44Client';
 import { LogOut, Trash2, User as UserIcon, AlertTriangle } from 'lucide-react';
-import BackButton from '@/components/BackButton';
 import {
   AlertDialog,
   AlertDialogTrigger,
@@ -35,9 +34,7 @@ export default function Settings() {
   return (
     <div className="px-6 py-12 md:py-16">
       <div className="mx-auto max-w-3xl">
-        <BackButton />
-
-        <h1 className="mt-6 font-heading text-4xl text-charcoal md:text-5xl">Settings</h1>
+        <h1 className="font-heading text-4xl text-charcoal md:text-5xl">Settings</h1>
 
         <section className="mt-8 rounded-2xl bg-cream p-6 ring-1 ring-samaan/15">
           <div className="flex items-center gap-3">
@@ -56,7 +53,7 @@ export default function Settings() {
           <button
             type="button"
             onClick={() => logout(true)}
-            className="inline-flex items-center gap-2 rounded-full border border-samaan/20 px-5 py-2.5 text-charcoal transition hover:border-scarlet hover:text-scarlet"
+            className="inline-flex items-center gap-2 rounded-full border border-samaan/20 px-5 py-2.5 text-charcoal transition hover:border-scarlet hover:text-scarlet focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-scarlet focus-visible:ring-offset-2"
           >
             <LogOut className="h-4 w-4" /> Log out
           </button>
@@ -81,7 +78,7 @@ export default function Settings() {
             <AlertDialogTrigger asChild>
               <button
                 type="button"
-                className="mt-5 inline-flex items-center gap-2 rounded-full bg-scarlet px-5 py-2.5 font-semibold text-cream transition hover:bg-scarlet/90"
+                className="mt-5 inline-flex items-center gap-2 rounded-full bg-scarlet px-5 py-2.5 font-semibold text-cream transition hover:bg-scarlet/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-scarlet focus-visible:ring-offset-2"
               >
                 <Trash2 className="h-4 w-4" /> Delete my account
               </button>

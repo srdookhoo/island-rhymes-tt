@@ -121,6 +121,8 @@
   .text-balance { text-wrap: balance; }
   .safe-top { padding-top: env(safe-area-inset-top); }
   .safe-bottom { padding-bottom: env(safe-area-inset-bottom); }
+  .safe-left { padding-left: env(safe-area-inset-left); }
+  .safe-right { padding-right: env(safe-area-inset-right); }
   .breathe { animation: breathe 4.5s ease-in-out infinite; }
   @keyframes breathe { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.02); } }
   .float-slow { animation: floaty 9s ease-in-out infinite; }

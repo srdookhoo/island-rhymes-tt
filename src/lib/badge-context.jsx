@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useEffect, useState, useCallback } from 'react';
 import { base44 } from '@/api/base44Client';
 import { evaluateEarned, allBadges } from '@/lib/badges';
+import { toast } from '@/components/ui/use-toast';
 
 const BadgeContext = createContext(null);
 const STORAGE_KEY = 'tt_badges_finished';
@@ -41,20 +42,31 @@ export function BadgeProvider({ children }) {
   const markBookFinished = useCallback(
     (book) => {
       if (!book || !book.ebook_id || !books || finished.has(book.ebook_id)) return [];
-      const next = new Set(finished);
+      const prev = finished;
+      const next = new Set(prev);
       next.add(book.ebook_id);
-      setFinished(next);
-      const before = evaluateEarned(books, finished);
-      const after = evaluateEarned(books, next);
-      const list = allBadges(books);
-      const newly = [];
-      after.forEach((id) => {
-        if (!before.has(id)) {
-          const badge = list.find((b) => b.id === id);
-          if (badge) newly.push(badge);
-        }
-      });
-      return newly;
+      try {
+        setFinished(next);
+        const before = evaluateEarned(books, prev);
+        const after = evaluateEarned(books, next);
+        const list = allBadges(books);
+        const newly = [];
+        after.forEach((id) => {
+          if (!before.has(id)) {
+            const badge = list.find((b) => b.id === id);
+            if (badge) newly.push(badge);
+          }
+        });
+        return newly;
+      } catch (e) {
+        setFinished(prev);
+        toast({
+          title: 'Could not save your badge',
+          description: 'Something went wrong — please try again in a moment.',
+          variant: 'destructive',
+        });
+        return [];
+      }
     },
     [books, finished]
   );

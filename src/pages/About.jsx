@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { BookOpen, Heart } from 'lucide-react';
 import { Image } from '@/components/ui/image';
-import BackButton from '@/components/BackButton';
 
 const HERO = 'https://media.base44.com/images/public/6abd0752646018ec90ff9353/18cc047ec_generated_image.png';
 
@@ -19,9 +18,7 @@ export default function About() {
       </section>
 
       <section className="mx-auto max-w-3xl px-6 py-16">
-        <BackButton className="inline-flex items-center gap-2 text-charcoal/70 transition hover:text-scarlet" />
-
-        <div className="mt-8 space-y-6 text-lg leading-relaxed text-charcoal/85">
+        <div className="space-y-6 text-lg leading-relaxed text-charcoal/85">
           <p>
             Island Rhymes T&amp;T is a magical digital library of rhythmic children's stories celebrating the vibrant culture, folklore, and natural beauty of Trinidad &amp; Tobago. Each tale is built on a beat — read-aloud verse, West Indian folklore, and art painted in the golden hour — so little ones can read, sing, and sway along with the rhythm of the islands.
           </p>

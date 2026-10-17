@@ -6,6 +6,8 @@ import { useReadingHistory } from '@/lib/reading-history-context';
 import { Volume2, VolumeX, BookOpen, Sparkles } from 'lucide-react';
 import EbookLayout from '@/components/EbookLayout';
 import BackButton from '@/components/BackButton';
+import { usePullToRefresh } from '@/hooks/usePullToRefresh';
+import PullIndicator from '@/components/PullIndicator';
 
 export default function BookDetail() {
   const { id } = useParams();
@@ -13,6 +15,9 @@ export default function BookDetail() {
   const [notFound, setNotFound] = useState(false);
   const [speaking, setSpeaking] = useState(false);
   const { logReading } = useReadingHistory();
+  const { ref, pullDistance, refreshing } = usePullToRefresh(() =>
+    base44.entities.Book.get(id).then(setBook).catch(() => {})
+  );
 
   useEffect(() => {
     setBook(null);
@@ -71,13 +76,12 @@ export default function BookDetail() {
   const themes = (book.themes || '').split(',').map((t) => t.trim()).filter(Boolean);
 
   return (
-    <div className="px-6 py-10 md:py-16">
+    <div ref={ref} className="px-6 py-10 md:py-16">
+      <PullIndicator className="mx-auto max-w-6xl" pullDistance={pullDistance} refreshing={refreshing} />
       <div className="mx-auto max-w-6xl">
-        <BackButton />
-
         <div className="mt-8 grid gap-10 md:grid-cols-2">
           {/* Left page (fixed) */}
-          <div className="md:sticky md:top-10 md:self-start">
+          <div className="md:sticky md:top-20 md:self-start">
             <div className="overflow-hidden rounded-2xl shadow-2xl">
               <Image src={book.cover_image} alt={book.title} className="aspect-[3/4] w-full" fittingType="fill" />
             </div>
@@ -126,7 +130,7 @@ export default function BookDetail() {
               <p className="mt-4 font-heading text-2xl leading-relaxed text-charcoal md:text-3xl">“{book.snippet}”</p>
               <button
                 onClick={toggleSpeak}
-                className="mt-5 inline-flex items-center gap-2 rounded-full bg-charcoal px-5 py-2 text-sm font-semibold text-cream transition hover:bg-charcoal/85"
+                className="mt-5 inline-flex items-center gap-2 rounded-full bg-charcoal px-5 py-2 text-sm font-semibold text-cream transition hover:bg-charcoal/85 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-scarlet focus-visible:ring-offset-2"
               >
                 {speaking ? <><VolumeX className="h-4 w-4" /> Stop reading</> : <><Volume2 className="h-4 w-4" /> Hear a 30-second clip</>}
               </button>

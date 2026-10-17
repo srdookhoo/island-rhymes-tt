@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom';
 import { Image } from '@/components/ui/image';
 import { useReadingHistory } from '@/lib/reading-history-context';
 import { History, BookOpen, Trash2, ArrowRight } from 'lucide-react';
-import BackButton from '@/components/BackButton';
+import { usePullToRefresh } from '@/hooks/usePullToRefresh';
+import PullIndicator from '@/components/PullIndicator';
 
 function timeAgo(ts) {
   const diff = Date.now() - ts;
@@ -18,13 +19,14 @@ function timeAgo(ts) {
 }
 
 export default function ReadingHistory() {
-  const { history, clearHistory } = useReadingHistory();
+  const { history, clearHistory, refresh } = useReadingHistory();
+  const { ref, pullDistance, refreshing } = usePullToRefresh(refresh);
 
   return (
-    <div className="px-6 py-12 md:py-16">
+    <div ref={ref} className="px-6 py-12 md:py-16">
+      <PullIndicator className="mx-auto max-w-5xl" pullDistance={pullDistance} refreshing={refreshing} />
       <div className="mx-auto max-w-5xl">
-        <BackButton />
-        <div className="mt-6 flex flex-wrap items-center justify-between gap-4">
+        <div className="flex flex-wrap items-center justify-between gap-4">
           <div>
             <p className="font-heading text-sm uppercase tracking-[0.3em] text-poui">Your journey</p>
             <h1 className="mt-2 font-heading text-4xl text-charcoal md:text-5xl">Reading History</h1>
@@ -35,7 +37,7 @@ export default function ReadingHistory() {
           {history.length > 0 && (
             <button
               onClick={clearHistory}
-              className="inline-flex items-center gap-2 rounded-full border border-samaan/20 px-4 py-2 text-sm text-charcoal/70 transition hover:border-scarlet hover:text-scarlet"
+              className="inline-flex items-center gap-2 rounded-full border border-samaan/20 px-4 py-2 text-sm text-charcoal/70 transition hover:border-scarlet hover:text-scarlet focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-scarlet focus-visible:ring-offset-2"
             >
               <Trash2 className="h-4 w-4" /> Clear history
             </button>
