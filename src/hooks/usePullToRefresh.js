@@ -16,9 +16,6 @@ export function usePullToRefresh(onRefresh, { threshold = 70, max = 110 } = {}) 
   });
 
   useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-
     const isAtTop = () =>
       (window.scrollY || document.documentElement.scrollTop || 0) <= 0;
 
@@ -62,13 +59,13 @@ export function usePullToRefresh(onRefresh, { threshold = 70, max = 110 } = {}) 
       }
     };
 
-    el.addEventListener('touchstart', onTouchStart, { passive: true });
-    el.addEventListener('touchmove', onTouchMove, { passive: false });
-    el.addEventListener('touchend', onTouchEnd, { passive: true });
+    document.addEventListener('touchstart', onTouchStart, { passive: true });
+    document.addEventListener('touchmove', onTouchMove, { passive: false });
+    document.addEventListener('touchend', onTouchEnd, { passive: true });
     return () => {
-      el.removeEventListener('touchstart', onTouchStart);
-      el.removeEventListener('touchmove', onTouchMove);
-      el.removeEventListener('touchend', onTouchEnd);
+      document.removeEventListener('touchstart', onTouchStart);
+      document.removeEventListener('touchmove', onTouchMove);
+      document.removeEventListener('touchend', onTouchEnd);
     };
   }, [threshold, max]);
 

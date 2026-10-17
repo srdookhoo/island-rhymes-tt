@@ -9,6 +9,8 @@ import BackButton from '@/components/BackButton';
 import { usePullToRefresh } from '@/hooks/usePullToRefresh';
 import PullIndicator from '@/components/PullIndicator';
 
+const bookCache = new Map();
+
 export default function BookDetail() {
   const { id } = useParams();
   const [book, setBook] = useState(null);
@@ -16,14 +18,20 @@ export default function BookDetail() {
   const [speaking, setSpeaking] = useState(false);
   const { logReading } = useReadingHistory();
   const { ref, pullDistance, refreshing } = usePullToRefresh(() =>
-    base44.entities.Book.get(id).then(setBook).catch(() => {})
+    base44.entities.Book.get(id).then((b) => { bookCache.set(id, b); setBook(b); }).catch(() => {})
   );
 
   useEffect(() => {
-    setBook(null);
     setNotFound(false);
+    const cached = bookCache.get(id);
+    if (cached) {
+      setBook(cached);
+    } else {
+      setBook(null);
+    }
     base44.entities.Book.get(id)
       .then((b) => {
+        bookCache.set(id, b);
         setBook(b);
         logReading(b);
       })

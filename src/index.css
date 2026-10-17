@@ -140,6 +140,17 @@
     min-width: 44px;
     min-height: 44px;
   }
+  [data-radix-collection-item] {
+    min-width: 44px;
+    min-height: 44px;
+  }
+  [role="combobox"] {
+    min-height: 44px;
+  }
+  button:has(> .lucide:only-child) {
+    min-width: 44px;
+    min-height: 44px;
+  }
   [data-radix-scroll-area-scrollbar] {
     display: none !important;
   }
