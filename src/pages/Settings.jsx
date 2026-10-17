@@ -46,7 +46,7 @@ export default function Settings() {
               <p className="text-sm text-charcoal/70">{user?.email || ''}</p>
             </div>
           </div>
-          {user?.role && <p className="mt-4 text-xs uppercase tracking-wide text-samaan">Role: {user.role}</p>}
+          {user?.role && <p className="mt-4 text-sm uppercase tracking-wide text-samaan">Role: {user.role}</p>}
         </section>
 
         <section className="mt-6">

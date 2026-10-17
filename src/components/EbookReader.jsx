@@ -110,7 +110,7 @@ export default function EbookReader({ ebookId, book }) {
             <span className="text-charcoal/70">{page.label}</span>
           )}
         </p>
-        <p className="text-sm text-charcoal/50">
+        <p className="text-sm text-charcoal/70">
           {index + 1} / {pages.length}
         </p>
       </div>
@@ -142,7 +142,7 @@ export default function EbookReader({ ebookId, book }) {
         ))}
       </div>
 
-      <p className="mt-3 text-center text-xs text-charcoal/50">
+      <p className="mt-3 text-center text-sm text-charcoal/70">
         Use the arrows or your ← → keys to turn the page.
       </p>
 

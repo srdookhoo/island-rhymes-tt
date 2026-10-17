@@ -55,10 +55,10 @@ export default function Home() {
       </div>
 
       {/* Hero */}
-      <section className="relative flex min-h-[600px] items-center justify-center overflow-hidden md:h-screen">
+      <section className="relative flex min-h-[70vh] items-center justify-center overflow-hidden md:h-screen">
         <Image src={HERO} alt="Trinidad and Tobago landscape at golden hour" className="absolute inset-0 h-full w-full" fittingType="fill" />
         <div className="absolute inset-0 bg-gradient-to-b from-charcoal/40 via-charcoal/25 to-cream" />
-        <div className="relative z-10 flex flex-col items-center px-6 py-32 text-center">
+        <div className="relative z-10 flex flex-col items-center px-6 py-20 md:py-32 text-center">
           <p className="font-heading text-sm uppercase tracking-[0.4em] text-poui md:text-base">A Caribbean Children's Collection</p>
           <h1 className="mt-6 max-w-5xl font-heading text-4xl leading-[1.05] text-cream text-balance md:text-7xl lg:text-8xl">
             The Rhythm of the Islands, Told One Page at a Time
@@ -84,7 +84,7 @@ export default function Home() {
           </p>
           <div className="mt-8 w-full">
             <SearchBar value={query} onChange={setQuery} />
-            <p className="mt-3 text-sm text-charcoal/50">
+            <p className="mt-3 text-sm text-charcoal/70">
               Try a title or a theme — “Carnival”, “Beach”, “Divali”…
             </p>
           </div>
@@ -145,7 +145,7 @@ export default function Home() {
       )}
 
       {/* Storyteller */}
-      <section id="storyteller" className="bg-samaan px-6 py-28 text-cream">
+      <section id="storyteller" className="bg-samaan px-6 py-16 md:py-28 text-cream">
         <div className="mx-auto grid max-w-5xl items-center gap-12 md:grid-cols-2">
           <div>
             <p className="font-heading text-sm uppercase tracking-[0.3em] text-poui">The Storyteller</p>

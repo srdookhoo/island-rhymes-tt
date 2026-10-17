@@ -63,7 +63,7 @@ export default function Badges() {
 
             <section className="mt-16 rounded-3xl bg-samaan p-8 text-center text-cream">
               <p className="font-heading text-2xl text-poui">Keep reading, keep earning</p>
-              <p className="mx-auto mt-2 max-w-md text-cream/80">
+              <p className="mx-auto mt-2 max-w-md text-cream/90">
                 Flip to the very last page of any book and a new badge will pop up to celebrate you.
               </p>
               <Link

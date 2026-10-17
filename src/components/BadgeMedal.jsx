@@ -29,7 +29,7 @@ export default function BadgeMedal({ badge, earned, size = 'md', showLabel = tru
           {badge.emoji}
         </span>
         {earned ? (
-          <span className="absolute -right-1 -top-1 grid h-6 w-6 place-items-center rounded-full bg-poui text-xs text-charcoal shadow">
+          <span className="absolute -right-1 -top-1 grid h-6 w-6 place-items-center rounded-full bg-poui text-sm text-charcoal shadow">
             ★
           </span>
         ) : (
@@ -44,12 +44,12 @@ export default function BadgeMedal({ badge, earned, size = 'md', showLabel = tru
             {badge.name}
           </p>
           {badge.subtitle && (
-            <p className={`text-xs leading-tight ${earned ? 'text-charcoal/60' : 'text-charcoal/35'}`}>
+            <p className={`text-sm leading-tight ${earned ? 'text-charcoal/60' : 'text-charcoal/35'}`}>
               {badge.subtitle}
             </p>
           )}
           {earned && badge.blurb && (
-            <p className="mt-1 max-w-[12rem] text-xs text-charcoal/55">{badge.blurb}</p>
+            <p className="mt-1 max-w-[12rem] text-sm text-charcoal/55">{badge.blurb}</p>
           )}
         </>
       )}

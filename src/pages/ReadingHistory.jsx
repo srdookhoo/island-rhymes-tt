@@ -48,7 +48,7 @@ export default function ReadingHistory() {
           <div className="mt-16 flex flex-col items-center text-center">
             <History className="h-12 w-12 text-samaan/40" />
             <p className="mt-4 font-heading text-2xl text-charcoal/70">No stories opened yet</p>
-            <p className="mt-2 text-charcoal/50">Open a book and it'll show up here.</p>
+            <p className="mt-2 text-charcoal/70">Open a book and it'll show up here.</p>
             <Link
               to="/"
               className="mt-8 inline-flex items-center gap-2 rounded-full bg-poui px-6 py-3 font-heading text-lg text-charcoal transition hover:brightness-105"
@@ -72,7 +72,7 @@ export default function ReadingHistory() {
                     {entry.age_label && (
                       <p className="mt-1 text-sm text-charcoal/60">{entry.age_label}</p>
                     )}
-                    <p className="mt-2 text-xs uppercase tracking-wide text-samaan">
+                    <p className="mt-2 text-sm uppercase tracking-wide text-samaan">
                       Opened {timeAgo(entry.openedAt)}
                     </p>
                   </div>

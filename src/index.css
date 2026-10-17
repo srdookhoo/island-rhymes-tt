@@ -132,3 +132,31 @@
   .twinkle { animation: twinkle 3s ease-in-out infinite; }
   @keyframes twinkle { 0%, 100% { opacity: 0.3; } 50% { opacity: 0.9; } }
 }
+
+@media (hover: none) and (pointer: coarse) {
+  [role="checkbox"],
+  [role="radio"],
+  [role="switch"] {
+    min-width: 44px;
+    min-height: 44px;
+  }
+  [data-radix-scroll-area-scrollbar] {
+    display: none !important;
+  }
+  [data-radix-scroll-area-viewport] {
+    scrollbar-width: none;
+  }
+  [data-radix-scroll-area-viewport]::-webkit-scrollbar {
+    display: none;
+  }
+  .overflow-x-auto,
+  .overflow-y-auto,
+  .overflow-auto {
+    scrollbar-width: none;
+  }
+  .overflow-x-auto::-webkit-scrollbar,
+  .overflow-y-auto::-webkit-scrollbar,
+  .overflow-auto::-webkit-scrollbar {
+    display: none;
+  }
+}

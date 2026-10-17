@@ -79,7 +79,7 @@ export default function BookDetail() {
     <div ref={ref} className="px-6 py-10 md:py-16">
       <PullIndicator className="mx-auto max-w-6xl" pullDistance={pullDistance} refreshing={refreshing} />
       <div className="mx-auto max-w-6xl">
-        <div className="mt-8 grid gap-10 md:grid-cols-2">
+        <div className="mt-8 grid gap-8 md:gap-10 md:grid-cols-2">
           {/* Left page (fixed) */}
           <div className="md:sticky md:top-20 md:self-start">
             <div className="overflow-hidden rounded-2xl shadow-2xl">
@@ -88,18 +88,18 @@ export default function BookDetail() {
             <div className="mt-6 rounded-2xl bg-cream p-6 ring-1 ring-samaan/15">
               <div className="flex items-center justify-between">
                 <p className="font-heading text-sm uppercase tracking-wide text-samaan">{book.age_label}</p>
-                <span className="rounded-full bg-samaan/10 px-3 py-1 text-xs font-semibold text-samaan">{book.page_count} pages</span>
+                <span className="rounded-full bg-samaan/10 px-3 py-1 text-sm font-semibold text-samaan">{book.page_count} pages</span>
               </div>
             </div>
           </div>
 
           {/* Right page (scrolls) */}
-          <div className="space-y-10">
+          <div className="space-y-8 md:space-y-10">
             <div>
               <h1 className="font-heading text-4xl text-charcoal md:text-5xl">{book.title}</h1>
               <div className="mt-3 flex flex-wrap gap-2">
                 {themes.map((t) => (
-                  <span key={t} className="inline-flex items-center gap-1 rounded-full bg-samaan/10 px-3 py-1 text-xs font-semibold text-samaan">
+                  <span key={t} className="inline-flex items-center gap-1 rounded-full bg-samaan/10 px-3 py-1 text-sm font-semibold text-samaan">
                     <Sparkles className="h-3 w-3" /> {t}
                   </span>
                 ))}
@@ -115,7 +115,7 @@ export default function BookDetail() {
               <div className="rounded-2xl bg-cream p-6 ring-1 ring-samaan/15">
                 <div className="flex items-center justify-between">
                   <p className="font-heading text-sm uppercase tracking-wide text-samaan">Full story · for proofreading</p>
-                  <span className="rounded-full bg-poui/30 px-3 py-1 text-xs font-semibold text-charcoal/70">Draft</span>
+                  <span className="rounded-full bg-poui/30 px-3 py-1 text-sm font-semibold text-charcoal/70">Draft</span>
                 </div>
                 <div className="mt-4 space-y-4">
                   {book.story.split(/\n\n+/).map((para, i) => (
@@ -134,7 +134,7 @@ export default function BookDetail() {
               >
                 {speaking ? <><VolumeX className="h-4 w-4" /> Stop reading</> : <><Volume2 className="h-4 w-4" /> Hear a 30-second clip</>}
               </button>
-              <p className="mt-2 text-xs text-charcoal/50">Read aloud in your browser — best with the volume up.</p>
+              <p className="mt-2 text-sm text-charcoal/70">Read aloud in your browser — best with the volume up.</p>
             </div>
 
             <div className="grid gap-4 sm:grid-cols-2">

@@ -32,7 +32,7 @@ export default function SiteFooter() {
               <Image src={LOGO} alt="Island Rhymes T&T" className="h-16 w-16 rounded-full shadow-lg" fittingType="fill" />
             </Link>
             <h3 className="font-heading text-2xl text-poui">Join the Village</h3>
-            <p className="mt-3 text-cream/80">
+            <p className="mt-3 text-cream/90">
               Get new book reveals, read-aloud dates, and island stories — straight to your inbox.
             </p>
             {done ? (
@@ -56,7 +56,7 @@ export default function SiteFooter() {
 
           <div>
             <h4 className="font-heading text-xl text-poui">Wander</h4>
-            <ul className="mt-3 space-y-2 text-cream/80">
+            <ul className="mt-3 space-y-2 text-cream/90">
               <li><Link to="/#infants" className="hover:text-poui">Infants (0–2)</Link></li>
               <li><Link to="/#toddlers" className="hover:text-poui">Toddlers (3–5)</Link></li>
               <li><Link to="/#young" className="hover:text-poui">Young Readers (6+)</Link></li>
@@ -68,7 +68,7 @@ export default function SiteFooter() {
 
           <div>
             <h4 className="font-heading text-xl text-poui">Say Hello</h4>
-            <ul className="mt-3 space-y-2 text-cream/80">
+            <ul className="mt-3 space-y-2 text-cream/90">
               <li>Port of Spain, Trinidad & Tobago</li>
               <li>hello@islandrhythmbooks.tt</li>
             </ul>

@@ -36,7 +36,7 @@ export default function TabBar() {
                   </span>
                 )}
               </span>
-              <span className={`text-xs font-semibold ${active ? 'text-scarlet' : 'text-charcoal/60'}`}>
+              <span className={`text-sm font-semibold ${active ? 'text-scarlet' : 'text-charcoal/60'}`}>
                 {label}
               </span>
             </button>
