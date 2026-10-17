@@ -34,6 +34,10 @@ export function BadgeProvider({ children }) {
   const badgeList = books ? allBadges(books) : [];
   const earnedCount = earned.size;
 
+  const refresh = useCallback(() => {
+    return base44.entities.Book.list('-sort_order', 200).then(setBooks).catch(() => setBooks([]));
+  }, []);
+
   const markBookFinished = useCallback(
     (book) => {
       if (!book || !book.ebook_id || !books || finished.has(book.ebook_id)) return [];
@@ -55,7 +59,7 @@ export function BadgeProvider({ children }) {
     [books, finished]
   );
 
-  const value = { books, finished, earned, earnedCount, badgeList, markBookFinished };
+  const value = { books, finished, earned, earnedCount, badgeList, markBookFinished, refresh };
 
   return <BadgeContext.Provider value={value}>{children}</BadgeContext.Provider>;
 }

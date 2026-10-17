@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Image } from '@/components/ui/image';
 import { useReadingHistory } from '@/lib/reading-history-context';
 import { History, BookOpen, Trash2, ArrowRight } from 'lucide-react';
+import BackButton from '@/components/BackButton';
 
 function timeAgo(ts) {
   const diff = Date.now() - ts;
@@ -22,7 +23,8 @@ export default function ReadingHistory() {
   return (
     <div className="px-6 py-12 md:py-16">
       <div className="mx-auto max-w-5xl">
-        <div className="flex flex-wrap items-center justify-between gap-4">
+        <BackButton />
+        <div className="mt-6 flex flex-wrap items-center justify-between gap-4">
           <div>
             <p className="font-heading text-sm uppercase tracking-[0.3em] text-poui">Your journey</p>
             <h1 className="mt-2 font-heading text-4xl text-charcoal md:text-5xl">Reading History</h1>

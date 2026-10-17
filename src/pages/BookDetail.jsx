@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { base44 } from '@/api/base44Client';
 import { Image } from '@/components/ui/image';
 import { useReadingHistory } from '@/lib/reading-history-context';
-import { ArrowLeft, Volume2, VolumeX, BookOpen, Sparkles } from 'lucide-react';
+import { Volume2, VolumeX, BookOpen, Sparkles } from 'lucide-react';
 import EbookLayout from '@/components/EbookLayout';
+import BackButton from '@/components/BackButton';
 
 export default function BookDetail() {
   const { id } = useParams();
@@ -50,7 +51,7 @@ export default function BookDetail() {
     return (
       <div className="flex min-h-[60vh] flex-col items-center justify-center gap-4 px-6 text-center">
         <h1 className="font-heading text-3xl text-charcoal">That story has wandered off…</h1>
-        <Link to="/" className="rounded-full bg-scarlet px-6 py-2 font-semibold text-cream">Back to the library</Link>
+        <BackButton className="inline-flex items-center gap-2 rounded-full bg-scarlet px-6 py-2 font-semibold text-cream" />
       </div>
     );
   }
@@ -72,9 +73,7 @@ export default function BookDetail() {
   return (
     <div className="px-6 py-10 md:py-16">
       <div className="mx-auto max-w-6xl">
-        <Link to="/" className="inline-flex items-center gap-2 text-sm text-charcoal/60 hover:text-scarlet">
-          <ArrowLeft className="h-4 w-4" /> Back to the library
-        </Link>
+        <BackButton />
 
         <div className="mt-8 grid gap-10 md:grid-cols-2">
           {/* Left page (fixed) */}

@@ -95,6 +95,21 @@
     @apply bg-background text-foreground font-body;
     font-size: 1.125rem;
     line-height: 1.6;
+    overscroll-behavior: none;
+  }
+
+  main {
+    overscroll-behavior: none;
+  }
+
+  button, a, [role="button"], nav {
+    user-select: none;
+    -webkit-user-select: none;
+  }
+
+  p, h1, h2, h3, h4, h5, h6 {
+    user-select: text;
+    -webkit-user-select: text;
   }
 
   h1, h2, h3, h4 {
@@ -104,6 +119,8 @@
 
 @layer utilities {
   .text-balance { text-wrap: balance; }
+  .safe-top { padding-top: env(safe-area-inset-top); }
+  .safe-bottom { padding-bottom: env(safe-area-inset-bottom); }
   .breathe { animation: breathe 4.5s ease-in-out infinite; }
   @keyframes breathe { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.02); } }
   .float-slow { animation: floaty 9s ease-in-out infinite; }

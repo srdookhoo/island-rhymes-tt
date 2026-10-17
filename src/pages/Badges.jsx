@@ -1,24 +1,30 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowLeft, Award, Sparkles } from 'lucide-react';
+import { Award, Sparkles } from 'lucide-react';
 import { useBadges } from '@/lib/badge-context';
 import BadgeMedal from '@/components/BadgeMedal';
 import { COLLECTION_BADGES } from '@/lib/badges';
+import BackButton from '@/components/BackButton';
+import { usePullToRefresh } from '@/hooks/usePullToRefresh';
 
 export default function Badges() {
-  const { books, badgeList, earned, earnedCount } = useBadges();
+  const { books, badgeList, earned, earnedCount, refresh } = useBadges();
   const loading = !books;
+  const { ref, pullDistance, refreshing } = usePullToRefresh(refresh);
 
   const storyBadges = badgeList.filter((b) => b.kind === 'book');
   const collectionBadges = badgeList.filter((b) => b.kind === 'collection');
   const total = badgeList.length;
 
   return (
-    <div className="px-6 py-12 md:py-16">
+    <div ref={ref} className="px-6 py-12 md:py-16">
+      {(pullDistance > 0 || refreshing) && (
+        <div className="mx-auto flex max-w-5xl items-end justify-center overflow-hidden" style={{ height: refreshing ? 40 : pullDistance }}>
+          <div className={`mb-1 h-8 w-8 rounded-full border-4 border-samaan/20 border-t-scarlet ${refreshing ? 'animate-spin' : ''}`} />
+        </div>
+      )}
       <div className="mx-auto max-w-5xl">
-        <Link to="/" className="inline-flex items-center gap-2 text-sm text-charcoal/60 hover:text-scarlet">
-          <ArrowLeft className="h-4 w-4" /> Back to the library
-        </Link>
+        <BackButton />
 
         <div className="mt-6 text-center">
           <div className="mx-auto grid h-14 w-14 place-items-center rounded-full bg-scarlet/10 text-scarlet">

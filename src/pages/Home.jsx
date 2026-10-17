@@ -5,6 +5,7 @@ import AgeSection from '@/components/AgeSection';
 import SearchBar from '@/components/SearchBar';
 import BookCard from '@/components/BookCard';
 import PromoBanner from '@/components/PromoBanner';
+import { usePullToRefresh } from '@/hooks/usePullToRefresh';
 import { ArrowRight, BookOpen, Play, Search as SearchIcon } from 'lucide-react';
 
 const HERO = 'https://media.base44.com/images/public/6abd0752646018ec90ff9353/18cc047ec_generated_image.png';
@@ -25,6 +26,10 @@ export default function Home() {
       .catch(() => setBooks([]));
   }, []);
 
+  const { ref, pullDistance, refreshing } = usePullToRefresh(() =>
+    base44.entities.Book.list('-sort_order', 50).then(setBooks).catch(() => {})
+  );
+
   const grouped = (group) => (books || []).filter((b) => b.age_group === group);
 
   const q = query.trim().toLowerCase();
@@ -38,7 +43,12 @@ export default function Home() {
     : [];
 
   return (
-    <div>
+    <div ref={ref}>
+      {(pullDistance > 0 || refreshing) && (
+        <div className="flex items-end justify-center overflow-hidden" style={{ height: refreshing ? 40 : pullDistance }}>
+          <div className={`mb-1 h-8 w-8 rounded-full border-4 border-samaan/20 border-t-scarlet ${refreshing ? 'animate-spin' : ''}`} />
+        </div>
+      )}
       {/* Coming to Google Play banner */}
       <div className="bg-charcoal text-cream">
         <div className="mx-auto flex max-w-6xl items-center justify-center gap-2 px-6 py-2.5 text-center text-sm">

@@ -17,7 +17,7 @@ export default function SiteFooter() {
   }
 
   return (
-    <footer id="village" className="relative mt-10 overflow-hidden bg-samaan text-cream">
+    <footer id="village" className="safe-bottom relative mt-10 overflow-hidden bg-samaan text-cream">
       <div className="wave-rise pointer-events-none absolute inset-x-0 top-0 h-24 text-cream">
         <svg viewBox="0 0 1440 80" preserveAspectRatio="none" className="h-full w-full" fill="currentColor">
           <path d="M0,40 C180,80 360,0 540,32 C720,64 900,8 1080,36 C1260,64 1380,24 1440,32 L1440,0 L0,0 Z" opacity="0.18" />

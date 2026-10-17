@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Leaf, X, Award, History } from 'lucide-react';
+import { Leaf, X, Award, History, Settings as SettingsIcon } from 'lucide-react';
 import { useBadges } from '@/lib/badge-context';
 import { Image } from '@/components/ui/image';
 
@@ -23,10 +23,10 @@ export default function LeafNav() {
 
   return (
     <>
-      <Link to="/" className="fixed top-5 left-5 z-50">
+      <Link to="/" className="safe-top fixed top-5 left-5 z-50">
         <Image src={LOGO} alt="Island Rhymes T&T" className="h-12 w-12 rounded-full shadow-lg transition hover:scale-105" fittingType="fill" />
       </Link>
-      <div className="fixed top-5 right-5 z-50 flex items-center gap-3">
+      <div className="safe-top fixed top-5 right-5 z-50 flex items-center gap-3">
         <Link
           to="/history"
           aria-label="Reading history"
@@ -45,6 +45,13 @@ export default function LeafNav() {
               {earnedCount}
             </span>
           )}
+        </Link>
+        <Link
+          to="/settings"
+          aria-label="Settings"
+          className="grid h-12 w-12 place-items-center rounded-full bg-cream text-charcoal shadow-lg transition hover:scale-105"
+        >
+          <SettingsIcon className="h-5 w-5" />
         </Link>
         <button
           onClick={() => setOpen(true)}

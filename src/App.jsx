@@ -8,13 +8,16 @@ import UserNotRegisteredError from '@/components/UserNotRegisteredError';
 import ScrollToTop from './components/ScrollToTop';
 import { BadgeProvider } from '@/lib/badge-context';
 import { ReadingHistoryProvider } from '@/lib/reading-history-context';
+import { lazy, Suspense } from 'react';
+import { ThemeProvider } from 'next-themes';
 import Layout from '@/components/Layout';
-import Home from '@/pages/Home';
-import BookDetail from '@/pages/BookDetail';
-import Badges from '@/pages/Badges';
-import ReadingHistory from '@/pages/ReadingHistory';
-import About from '@/pages/About';
-import Contact from '@/pages/Contact';
+const Home = lazy(() => import('@/pages/Home'));
+const BookDetail = lazy(() => import('@/pages/BookDetail'));
+const Badges = lazy(() => import('@/pages/Badges'));
+const ReadingHistory = lazy(() => import('@/pages/ReadingHistory'));
+const About = lazy(() => import('@/pages/About'));
+const Contact = lazy(() => import('@/pages/Contact'));
+const Settings = lazy(() => import('@/pages/Settings'));
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
@@ -41,17 +44,20 @@ const AuthenticatedApp = () => {
 
   // Render the main app
   return (
-    <Routes>
-      <Route element={<Layout />}>
-        <Route path="/" element={<Home />} />
-        <Route path="/book/:id" element={<BookDetail />} />
-        <Route path="/badges" element={<Badges />} />
-        <Route path="/history" element={<ReadingHistory />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact />} />
+    <Suspense fallback={<div className="flex min-h-screen items-center justify-center"><div className="h-10 w-10 animate-spin rounded-full border-4 border-samaan/20 border-t-scarlet" /></div>}>
+      <Routes>
+        <Route element={<Layout />}>
+          <Route path="/" element={<Home />} />
+          <Route path="/book/:id" element={<BookDetail />} />
+          <Route path="/badges" element={<Badges />} />
+          <Route path="/history" element={<ReadingHistory />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/settings" element={<Settings />} />
         </Route>
-      <Route path="*" element={<PageNotFound />} />
-    </Routes>
+        <Route path="*" element={<PageNotFound />} />
+      </Routes>
+    </Suspense>
   );
 };
 
@@ -61,14 +67,16 @@ function App() {
   return (
     <AuthProvider>
       <QueryClientProvider client={queryClientInstance}>
-        <Router>
-          <ScrollToTop />
-          <BadgeProvider>
-            <ReadingHistoryProvider>
-              <AuthenticatedApp />
-            </ReadingHistoryProvider>
-          </BadgeProvider>
-        </Router>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <Router>
+            <ScrollToTop />
+            <BadgeProvider>
+              <ReadingHistoryProvider>
+                <AuthenticatedApp />
+              </ReadingHistoryProvider>
+            </BadgeProvider>
+          </Router>
+        </ThemeProvider>
         <Toaster />
       </QueryClientProvider>
     </AuthProvider>

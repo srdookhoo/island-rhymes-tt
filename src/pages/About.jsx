@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowLeft, BookOpen, Heart } from 'lucide-react';
+import { BookOpen, Heart } from 'lucide-react';
 import { Image } from '@/components/ui/image';
+import BackButton from '@/components/BackButton';
 
 const HERO = 'https://media.base44.com/images/public/6abd0752646018ec90ff9353/18cc047ec_generated_image.png';
 
@@ -18,9 +19,7 @@ export default function About() {
       </section>
 
       <section className="mx-auto max-w-3xl px-6 py-16">
-        <Link to="/" className="inline-flex items-center gap-2 text-charcoal/70 transition hover:text-scarlet">
-          <ArrowLeft className="h-4 w-4" /> Back to the library
-        </Link>
+        <BackButton className="inline-flex items-center gap-2 text-charcoal/70 transition hover:text-scarlet" />
 
         <div className="mt-8 space-y-6 text-lg leading-relaxed text-charcoal/85">
           <p>
