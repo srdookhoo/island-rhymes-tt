@@ -171,3 +171,49 @@
     display: none;
   }
 }
+
+/* ===== Dark-mode overrides for the Golden Hour custom palette =====
+   Light-mode utility classes keep their original values; these only apply
+   under .dark (Android system dark / ThemeProvider dark) so the warm light
+   design is preserved when dark mode is off. Unlayered so they outrank the
+   @layer utilities versions. */
+
+.dark .bg-cream { background-color: hsl(var(--card)); }
+.dark .bg-cream\/10 { background-color: hsl(var(--card) / 0.1); }
+.dark .bg-cream\/20 { background-color: hsl(var(--card) / 0.2); }
+.dark .bg-cream\/80 { background-color: hsl(var(--card) / 0.8); }
+.dark .bg-cream\/90 { background-color: hsl(var(--card) / 0.9); }
+.dark .bg-cream\/95 { background-color: hsl(var(--card) / 0.95); }
+.dark .hover\:bg-cream:hover { background-color: hsl(var(--card)); }
+.dark .hover\:bg-cream\/20:hover { background-color: hsl(var(--card) / 0.2); }
+
+.dark .text-charcoal { color: hsl(var(--foreground)); }
+.dark .text-charcoal\/35 { color: hsl(var(--foreground) / 0.35); }
+.dark .text-charcoal\/40 { color: hsl(var(--foreground) / 0.4); }
+.dark .text-charcoal\/45 { color: hsl(var(--foreground) / 0.45); }
+.dark .text-charcoal\/55 { color: hsl(var(--foreground) / 0.55); }
+.dark .text-charcoal\/60 { color: hsl(var(--foreground) / 0.6); }
+.dark .text-charcoal\/70 { color: hsl(var(--foreground) / 0.7); }
+.dark .text-charcoal\/75 { color: hsl(var(--foreground) / 0.75); }
+.dark .text-charcoal\/80 { color: hsl(var(--foreground) / 0.8); }
+.dark .text-charcoal\/85 { color: hsl(var(--foreground) / 0.85); }
+.dark .hover\:text-charcoal:hover { color: hsl(var(--foreground)); }
+
+/* Gold is light in both themes — keep dark text on solid/tinted gold. */
+.dark .bg-poui.text-charcoal { color: hsl(var(--charcoal)); }
+.dark .bg-poui\/30.text-charcoal\/70 { color: hsl(var(--charcoal) / 0.7); }
+
+/* Green labels/borders/rings need a lighter shade on dark surfaces. */
+.dark .text-samaan { color: hsl(154 40% 55%); }
+.dark .text-samaan\/40 { color: hsl(154 40% 55% / 0.4); }
+.dark .border-samaan\/10 { border-color: hsl(154 30% 45% / 0.1); }
+.dark .border-samaan\/15 { border-color: hsl(154 30% 45% / 0.15); }
+.dark .border-samaan\/20 { border-color: hsl(154 30% 45% / 0.2); }
+.dark .border-samaan\/25 { border-color: hsl(154 30% 45% / 0.25); }
+.dark .border-samaan\/30 { border-color: hsl(154 30% 45% / 0.3); }
+.dark .ring-samaan\/15 { --tw-ring-color: hsl(154 30% 45% / 0.15); }
+.dark .ring-samaan\/20 { --tw-ring-color: hsl(154 30% 45% / 0.2); }
+.dark .ring-samaan\/30 { --tw-ring-color: hsl(154 30% 45% / 0.3); }
+
+/* Gradients fading to cream should fade to the dark surface. */
+.dark .to-cream { --tw-gradient-to: hsl(var(--card)); }
