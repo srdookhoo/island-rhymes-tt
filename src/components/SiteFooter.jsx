@@ -83,6 +83,7 @@ export default function SiteFooter() {
         <div className="mt-12 flex flex-col items-center justify-between gap-3 border-t border-cream/15 pt-6 text-sm text-cream/60 md:flex-row">
           <p>© {new Date().getFullYear()} Island Rhythm Books. Made with <Heart className="inline h-3 w-3 text-scarlet" /> in Trinidad & Tobago.</p>
           <p>Island-illustrated · Rhyme-aloud · Caribbean-made</p>
+          <p className="mt-1"><Link to="/privacy" className="hover:text-poui">Privacy Policy</Link> · <Link to="/terms" className="hover:text-poui">Terms of Use</Link></p>
         </div>
       </div>
     </footer>

@@ -19,6 +19,8 @@ const ReadingHistory = lazy(() => import('@/pages/ReadingHistory'));
 const About = lazy(() => import('@/pages/About'));
 const Contact = lazy(() => import('@/pages/Contact'));
 const Settings = lazy(() => import('@/pages/Settings'));
+const PrivacyPolicy = lazy(() => import('@/pages/PrivacyPolicy'));
+const TermsOfUse = lazy(() => import('@/pages/TermsOfUse'));
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
@@ -55,6 +57,8 @@ const AuthenticatedApp = () => {
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/settings" element={<Settings />} />
+          <Route path="/privacy" element={<PrivacyPolicy />} />
+          <Route path="/terms" element={<TermsOfUse />} />
         </Route>
         <Route path="*" element={<PageNotFound />} />
       </Routes>
