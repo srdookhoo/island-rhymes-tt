@@ -7,7 +7,7 @@ import BookCard from '@/components/BookCard';
 import PromoBanner from '@/components/PromoBanner';
 import { usePullToRefresh } from '@/hooks/usePullToRefresh';
 import PullIndicator from '@/components/PullIndicator';
-import { ArrowRight, BookOpen, Play, Search as SearchIcon } from 'lucide-react';
+import { ArrowRight, BookOpen, Search as SearchIcon } from 'lucide-react';
 
 const HERO = 'https://media.base44.com/images/public/6abd0752646018ec90ff9353/18cc047ec_generated_image.png';
 
@@ -46,14 +46,6 @@ export default function Home() {
   return (
     <div ref={ref}>
       <PullIndicator pullDistance={pullDistance} refreshing={refreshing} />
-      {/* Coming to Google Play banner */}
-      <div className="bg-charcoal text-cream">
-        <div className="mx-auto flex max-w-6xl items-center justify-center gap-2 px-6 py-2.5 text-center text-sm">
-          <Play className="h-4 w-4 shrink-0 fill-poui text-poui" />
-          <span>Coming soon to <strong className="font-semibold text-poui">Google Play</strong> — island stories to read, sing, and carry along.</span>
-        </div>
-      </div>
-
       {/* Hero */}
       <section className="relative flex min-h-[70vh] items-center justify-center overflow-hidden md:h-screen">
         <Image src={HERO} alt="Trinidad and Tobago landscape at golden hour" className="absolute inset-0 h-full w-full" fittingType="fill" />
@@ -135,12 +127,6 @@ export default function Home() {
           />
           <div className="h-px w-full bg-gradient-to-r from-transparent via-samaan/20 to-transparent" />
           <AgeSection books={grouped('young_children')} {...AGE_META.young_children} />
-          <PromoBanner
-            eyebrow="Coming Soon to Google Play"
-            title="Take the rhythm of the islands anywhere"
-            description="Island Rhymes is launching on Google Play — read and sing along with your little ones on Android, anytime, anywhere."
-            tone="samaan"
-          />
         </>
       )}
 
